@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.codigo</groupId>
-	<artifactId>ms-seguridad</artifactId>
+	<artifactId>ms-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ms-seguridad</name>
 	<description>Proyecto que gstionara la seguridad de la aplicación de Bootcamp G6</description>
