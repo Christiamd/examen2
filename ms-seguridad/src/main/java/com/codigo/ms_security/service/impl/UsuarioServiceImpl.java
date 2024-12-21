@@ -3,6 +3,7 @@ package com.codigo.ms_security.service.impl;
 import com.codigo.ms_security.entity.Usuario;
 import com.codigo.ms_security.repository.UsuarioRepository;
 import com.codigo.ms_security.service.UsuarioSerice;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -27,8 +28,12 @@ public class UsuarioServiceImpl implements UsuarioSerice {
       };
     }
 
+
+
     @Override
-    public List<Usuario> getInfoUser() {
-        return usuarioRepository.findAll();
+    public Usuario getInfoUser(String email) {
+        return usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con el email: " + email));
+
     }
 }

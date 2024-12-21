@@ -6,6 +6,7 @@ import com.codigo.ms_security.aggregates.request.SignUpRequest;
 import com.codigo.ms_security.aggregates.response.SignInResponse;
 import com.codigo.ms_security.entity.Usuario;
 import com.codigo.ms_security.service.AuthenticationService;
+import com.codigo.ms_security.service.UsuarioSerice;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,8 @@ import java.util.List;
 public class UsersController {
 
     private final AuthenticationService authenticationService;
+    private final UsuarioSerice usuarioSerice;
+
 
 
     @PostMapping("/signupadmin")
@@ -39,5 +42,10 @@ public class UsersController {
         return ResponseEntity.ok(authenticationService
                 .signUpUser(signUpRequest));
     }
+    @GetMapping("/{username}")
+    public ResponseEntity<Usuario> getInfoUser(@PathVariable String username) {
+        return ResponseEntity.ok(usuarioSerice.getInfoUser(username));
+    }
+
 
 }

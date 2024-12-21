@@ -8,5 +8,5 @@ import java.util.List;
 public interface UsuarioSerice {
     UserDetailsService userDetailsService();
 
-    List<Usuario> getInfoUser();
+    Usuario getInfoUser(String email);
 }
